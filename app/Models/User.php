@@ -29,7 +29,9 @@ class User extends Authenticatable implements JWTSubject
         'password',
         'is_active',
         'device_token',
-        'timezone'
+        'timezone',
+        'last_synced_attributes',
+        'is_synced'
     ];
 
     /**
@@ -46,6 +48,9 @@ class User extends Authenticatable implements JWTSubject
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'last_synced_attributes' => 'json',
+        'is_synced' => 'boolean'
+
     ];
 
     protected static function boot(): void
